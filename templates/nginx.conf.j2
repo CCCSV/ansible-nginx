@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 
-user {{ nginx_user | default('www-data') }};
+user {{ nginx_user }};
 worker_processes {{ nginx_workers_processes | default(ansible_processor_cores*2) }};
 pid /var/run/nginx.pid;
 
@@ -62,7 +62,7 @@ http {
 	##
 	# Uncomment it if you installed nginx-passenger
 	##
-	
+
 	#passenger_root /usr;
 	#passenger_ruby /usr/bin/ruby;
 

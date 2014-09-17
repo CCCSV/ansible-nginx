@@ -1,11 +1,14 @@
 ---
 
 # install Nginx
-- apt: pkg=nginx state=present
+- debug: msg="pkg manager - {{ ansible_pkg_mgr }}"
+
+- name: install nginx
+  action: "{{ ansible_pkg_mgr }} name=nginx state=present"
 
 # config files
 - include: config.yml
 
 # start Nginx
-- service: name=nginx state=started
-
+- name: start nginx service
+  service: name=nginx state=started

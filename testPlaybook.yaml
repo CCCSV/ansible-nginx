@@ -1,0 +1,22 @@
+---
+
+- name: 'nginx installation test'
+
+  hosts: test
+
+  vars:
+    # custom_configuration: value
+
+  pre_tasks:
+    - debug: msg="Running test installation"
+
+  roles:
+    - role: '.'
+      nginx_user: root
+      nginx_sites:
+        - server:
+           file_name: www.mysite.com
+           server_name: www.mysite.com
+           listen: 80
+           root: /usr/share/nginx/www/mysite
+           location1: {name: /, try_files: "$uri $uri/ /index.html"}
