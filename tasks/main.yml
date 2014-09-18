@@ -4,6 +4,7 @@
 - debug: msg="pkg manager - {{ ansible_pkg_mgr }}"
 
 - name: install nginx
+  sudo: true
   action: "{{ ansible_pkg_mgr }} name=nginx state=present"
 
 # config files
@@ -11,4 +12,5 @@
 
 # start Nginx
 - name: start nginx service
+  sudo: true
   service: name=nginx state=started
