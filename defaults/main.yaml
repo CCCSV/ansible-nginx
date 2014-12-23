@@ -1,4 +1,1 @@
 nginx_user: www-data
-
-nginx_run_service_default: true
-

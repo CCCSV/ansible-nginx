@@ -12,7 +12,8 @@
 
 # start Nginx
 - name: start nginx service
+  debug: msg="nginx_run_service - {{ nginx_run_service | default(false) }}"
   sudo: true
-  service: name=nginx state=started
-  when: nginx_run_service | default(nginx_run_service_default)
-
+  when: nginx_run_service | default(false)
+  notify:
+    - start nginx

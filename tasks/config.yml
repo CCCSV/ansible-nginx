@@ -23,7 +23,8 @@
 - name: write nginx.conf
   sudo: true
   template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf backup=yes
-  notify: reload nginx
+  notify:
+    - reload nginx
 
 # ensure default vhost is off
 - name: default virtualhost removed
